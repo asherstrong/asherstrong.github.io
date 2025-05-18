@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Work in Progress</title>
+  <meta http-equiv="refresh" content="5;url=index.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
@@ -13,28 +14,22 @@
       background: radial-gradient(circle at center, #001f3f, #001122);
       overflow: hidden;
       color: white;
-    }
-
-    .container {
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      flex-direction: column;
       text-align: center;
-      z-index: 2;
-      position: relative;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+      font-size: 4rem;
       color: #00ffcc;
       text-shadow: 0 0 10px #00ffcc;
     }
 
     p {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: #aaffff;
     }
 
@@ -50,7 +45,7 @@
         39% 35%
       );
       opacity: 0.8;
-      animation: float 10s linear infinite;
+      animation: float 12s linear infinite;
     }
 
     @keyframes float {
@@ -69,19 +64,17 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🚧 Work in Progress 🚧</h1>
-    <p>This site is currently under construction.</p>
-  </div>
+  <h1>404 - Not Found</h1>
+  <p>You will be redirected to the homepage in 5 seconds.</p>
 
   <script>
-    // Generate floating stars
-    const starCount = 50;
+    // Floating stars
+    const starCount = 30;
     for (let i = 0; i < starCount; i++) {
       const star = document.createElement('div');
       star.classList.add('star');
       star.style.left = `${Math.random() * 100}vw`;
-      star.style.animationDuration = `${5 + Math.random() * 10}s`;
+      star.style.animationDuration = `${6 + Math.random() * 6}s`;
       star.style.animationDelay = `${Math.random() * 10}s`;
       document.body.appendChild(star);
     }
