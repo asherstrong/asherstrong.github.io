@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="5;url=index.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 - Page Not Found</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
@@ -26,11 +25,13 @@
       font-size: 4rem;
       color: #00ffcc;
       text-shadow: 0 0 10px #00ffcc;
+      margin: 0;
     }
 
-    p {
+    #countdown-text {
       font-size: 1.2rem;
       color: #aaffff;
+      margin-top: 1rem;
     }
 
     .star {
@@ -45,7 +46,7 @@
         39% 35%
       );
       opacity: 0.8;
-      animation: float 12s linear infinite;
+      animation: float linear infinite;
     }
 
     @keyframes float {
@@ -65,17 +66,36 @@
 </head>
 <body>
   <h1>404 - Not Found</h1>
-  <p>You will be redirected to the homepage in 5 seconds.</p>
+  <p id="countdown-text">Redirecting in 5 seconds…</p>
 
   <script>
+    // Countdown redirect
+    let secondsLeft = 5;
+    const countdownText = document.getElementById("countdown-text");
+
+    const countdown = setInterval(() => {
+      secondsLeft--;
+      countdownText.textContent = `Redirecting in ${secondsLeft} second${secondsLeft !== 1 ? 's' : ''}…`;
+
+      if (secondsLeft <= 0) {
+        clearInterval(countdown);
+        window.location.href = "index.html";
+      }
+    }, 1000);
+
     // Floating stars
     const starCount = 30;
     for (let i = 0; i < starCount; i++) {
       const star = document.createElement('div');
       star.classList.add('star');
+
+      const size = 15 + Math.random() * 10;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
       star.style.left = `${Math.random() * 100}vw`;
+      star.style.top = `${Math.random() * 100}vh`;
       star.style.animationDuration = `${6 + Math.random() * 6}s`;
-      star.style.animationDelay = `${Math.random() * 10}s`;
+      star.style.animationDelay = `${Math.random() * 5}s`;
       document.body.appendChild(star);
     }
   </script>
